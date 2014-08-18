@@ -1,30 +1,56 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+#The World 
+##Using [Cesium 1.0](http://cesiumjs.org/2013/04/12/Cesium-up-and-running/)
+-----------------------------------------------------------------
+###Todo
+1. Get Cesium 1.0 working on Sinatra.
+2. Modify [Cesium imagery layers](http://cesiumjs.org/2013/01/04/Cesium-Imagery-Layers-Tutorial/)
+3. [LeapMotion API](https://github.com/Aviture/cesium-leap)
+4. Get Analytics via CZML(Subset of JSON) working. [CZML Guide for analytics](https://github.com/AnalyticalGraphicsInc/cesium/wiki/czml-guide)
+-----------------------------------------------------------------
+####From Cesium 1.0
 
-### Purpose
-The Sinatra Skeleton:
+<p align="center">
+<img src="https://github.com/AnalyticalGraphicsInc/cesium/wiki/logos/Cesium_Logo_Color.jpg" width="50%" />
+</p>
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+Cesium is a JavaScript library for creating 3D globes and 2D maps in a web browser without a plugin. It uses WebGL for hardware-accelerated graphics, and is cross-platform, cross-browser, and tuned for dynamic-data visualization.
 
-### Quickstart
+http://cesiumjs.org/
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+### Get Started ###
 
-As needed, create models & migrations with the `rake` tasks:
+See the [Cesium Up and Running](http://cesiumjs.org/2013/04/12/Cesium-up-and-running/) tutorial.  Have questions?  Ask them on the [forum](https://groups.google.com/d/forum/cesium-dev).
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+Interested in contributing?  See the [wiki](https://github.com/AnalyticalGraphicsInc/cesium/wiki).
 
-### Contributing
+### Mission ###
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+Our mission is to create the leading web-based globe and map for visualizing dynamic data.  We strive for the best possible performance, precision, visual quality, ease of use, platform support, and content.
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
+### License ###
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+[Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).  Cesium is free for both commercial and non-commercial use.
+
+We appreciate attribution by including the Cesium logo and link in your app.
+
+### Demos ###
+
+<p align="center">
+<a href="http://cesiumjs.org/demos/atovisualizer.html"><img src="http://cesiumjs.org/demos/images/atovisualizer.jpg" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/sunshine.html"><img src="http://cesiumjs.org/demos/images/sunshine.jpg" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/noradtrackssanta.html"><img src="http://cesiumjs.org/demos/images/noradtrackssanta.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/doarama.html"><img src="http://cesiumjs.org/demos/images/doarama.jpg" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/powdertracks.html"><img src="http://cesiumjs.org/demos/images/powdertracks.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/earthkamexplorer.html"><img src="http://cesiumjs.org/demos/images/earthkamexplorer.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/d3.html"><img src="http://cesiumjs.org/demos/images/d3.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/koansys.html"><img src="http://cesiumjs.org/demos/images/koansys.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/subspace.html"><img src="http://cesiumjs.org/demos/images/subspace.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/agsattrack.html"><img src="http://cesiumjs.org/demos/images/agsattrack.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/weblvcsimulationviewer.html"><img src="http://cesiumjs.org/demos/images/weblvcsimulationviewer.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/demos/vega.html"><img src="http://cesiumjs.org/demos/images/vega.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html"><img src="http://cesiumjs.org/images/Sandcastle.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/Cesium/Build/Apps/CesiumViewer/"><img src="http://cesiumjs.org/images/CesiumViewer.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/LotsOfSatellites/"><img src="http://cesiumjs.org/images/LotsOfSatellites.png" height="150" /></a>&nbsp;
+<a href="http://cesiumjs.org/czmlSamples.html"><img src="http://cesiumjs.org/images/LotsOfSensors.png" height="150" /></a>&nbsp;
+</p>
+
