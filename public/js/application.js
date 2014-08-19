@@ -1,3 +1,6 @@
+// Cesium.Viewer Creates the fullscreen sandbox. 
+// cesiumContainer creates the ellipsoid.
+
 // // Creates ESRI textural layer on glob
 // var viewer = new Cesium.Viewer('cesiumContainer', {
 //     imageryProvider : new Cesium.ArcGisMapServerImageryProvider({
@@ -18,7 +21,8 @@
 //   blackMarble.brightness = 2.0;
 
 
-// Bing Maps
+
+// // Bing Maps
 var viewer = new Cesium.Viewer('cesiumContainer');
 
 //   var layers = viewer.scene.imageryLayers;
