@@ -1,0 +1,36 @@
+{
+  "name": "cesium-leap",
+  "version": "0.0.5",
+  "homepage": "https://github.com/Aviture/cesium-leap",
+  "authors": [
+    "Mike Macaulay <michael.macaulay@aviture.us.com>"
+  ],
+  "description": "Leap Motion navigation for Cesium",
+  "main": "CesiumLeap.js",
+  "keywords": [
+    "leap",
+    "leapmotion",
+    "Cesium"
+  ],
+  "dependencies": {
+    "leapjs": "0.2.2"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.0.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.5",
+    "commit": "6fef9cdfb05168a145a9034172538f336d3933c7"
+  },
+  "_source": "git://github.com/mmacaula/cesium-leap.git",
+  "_target": "~0.0.5",
+  "_originalSource": "cesium-leap",
+  "_direct": true
+}

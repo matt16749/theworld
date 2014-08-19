@@ -21,13 +21,14 @@
 // Bing Maps
 var viewer = new Cesium.Viewer('cesiumContainer');
 
-  var layers = viewer.scene.imageryLayers;
-  var blackMarble = layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
-      url : '//cesiumjs.org/tilesets/imagery/blackmarble',
-      maximumLevel : 8,
-      credit : 'Black Marble imagery courtesy NASA Earth Observatory'
-  }));
-// OPTIONAL: Blends BlackMarble layer with Bing Maps Layer.
-  blackMarble.alpha = 0.5;
-// Increase Brightness of lights
-  blackMarble.brightness = 2.0;
+//   var layers = viewer.scene.imageryLayers;
+//   var blackMarble = layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
+//       url : '//cesiumjs.org/tilesets/imagery/blackmarble',
+//       maximumLevel : 8,
+//       credit : 'Black Marble imagery courtesy NASA Earth Observatory'
+//   }));
+// // OPTIONAL: Blends BlackMarble layer with Bing Maps Layer.
+//   blackMarble.alpha = 0.5;
+// // Increase Brightness of lights
+//   blackMarble.brightness = 2.0;
+
