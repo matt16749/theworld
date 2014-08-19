@@ -11,6 +11,14 @@
 </head>
 <body>
   <%= yield %>
+  <script src="/leapjs/leap.min.js"></script>
+  <script src="/cesium-leap/dist/cesiumLeap.js"></script>
   <script src="/js/application.js"></script>
+  <script type="text/javascript">
+    var cesiumLeap = new CesiumLeap({
+      scene : viewer.scene,
+      ellipsoid : viewer.scene.globe.ellipsoid
+    });
+  </script>
 </body>
 </html>

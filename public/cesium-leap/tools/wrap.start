@@ -1,0 +1,13 @@
+//Copyright 2012, etc.
+
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD.
+        define(['Leap'], factory);
+    } else {
+        // Browser globals
+        root.CesiumLeap = factory(root.Leap);
+    }
+}(this, function (Leap) {
+
+
