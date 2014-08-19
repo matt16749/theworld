@@ -21,9 +21,17 @@ this._heightScale = 10000000;
 // Allows me to set properties of my DataSource instances
 // Properties are attributes in js. Ex: person.age 
 // More info here: http://www.w3schools.com/js/js_properties.asp
+// Properties are set in object literal
 Object.defineProperties(DataSource.prototype,{
+  // Returns human-readable name for instance of DataSource
+  name : {
+    get : function(){
+      return this._name;
+    }
+  },
+  
 
-})
+});
 
 
 // VISUALIZATIONS:
