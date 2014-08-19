@@ -2,13 +2,11 @@
 ##Using [Cesium 1.0](http://cesiumjs.org/2013/04/12/Cesium-up-and-running/)
 -----------------------------------------------------------------
 ###Todo
-1. Get Cesium 1.0 working on Sinatra.
-2. Modify [Cesium imagery layers](http://cesiumjs.org/2013/01/04/Cesium-Imagery-Layers-Tutorial/)
-3. [LeapMotion API](https://github.com/Aviture/cesium-leap)
-4. Get Analytics via CZML
-  * (Subset of JSON) working. [CZML Guide for analytics](https://github.com/AnalyticalGraphicsInc/cesium/wiki/czml-guide)
-  * [CZML example via Chrome](http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=CZML.html&label=DataSources)
-  
+1. Setup JSON datasource 
+  * http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Custom%20DataSource.html&label=DataSources
+  * application.js
+  * layout.erb
+  * cesium.erb
 -----------------------------------------------------------------
 ####From Cesium 1.0
 
