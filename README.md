@@ -7,6 +7,7 @@
   * application.js
   * layout.erb
   * cesium.erb
+  
 -----------------------------------------------------------------
 ####From Cesium 1.0
 
