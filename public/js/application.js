@@ -68,7 +68,6 @@ Object.defineProperties(DataSource.prototype,{
   },
 
   // Custom to a datasource in the example. Series is just an array that contains WebGl JSON datapoints.
-
   // Gets an array of series names. we defined seriesNames default property as an empty array
   seriesNames : {
     get : function(){
@@ -108,6 +107,11 @@ Object.defineProperties(DataSource.prototype,{
     }
   }
 });
+// End of DataSource.prototype properties started on line 26
+
+
+//Asynchronously loads the GeoJSON at a provided URL. 
+
 
 
 // Creates instance of DataSource to be used on our viewer.
