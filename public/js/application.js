@@ -1,3 +1,11 @@
+// NEED TO LOAD JSON ON LINE 226, or make it into an ajax call.
+// WebGL JSON is an array of series, and each series is an array of two items,
+// The first being the series name and the second is an array of repeating latitude, longitude, and height values.
+// Ex: 
+    //[["series1",[latitude, longitude, height, ... ]
+    // ["series2",[latitude, longitude, height, ... ]]
+
+
 // JSON DATAPOINTS:
 // This is just the private properties/functions and their defaults. Public configuration was already defined.
 var DataSource = function(name){
@@ -9,7 +17,7 @@ this._error = new Cesium.Event();
 this._isLoading = false;
 this._loading = new Cesium.Event();
 // Entity collection is a collection of entities.
-// Entities are JS syntax for rows in a database. http://azure.microsoft.com/en-us/documentation/articles/storage-nodejs-how-to-use-table-storage/
+// Entitities are series mapped out onto the globe.
 this._entityCollection = new Cesium.EntityCollection();
 // Series seem to be one array of datapoints from entity collection. Datapoints are arranged individually as WebGL JSON
 // In our case, Series are defined by WebGL JSON whose process is being replicated here. WebGL JSON is taking JSON and visualizing it in 3d.
@@ -37,7 +45,7 @@ Object.defineProperties(DataSource.prototype,{
     value : undefined,
     writable :false
   },
-  //Gets collection of entity instances. Entities is JS syntax for rows in a db. look at line 11 
+  //Gets collection of entity instances. Entities is series mapped out onto cesium globe. look at line 11 
   entities : {
     get : function(){
       return this._entityCollection;
@@ -76,7 +84,6 @@ Object.defineProperties(DataSource.prototype,{
     }
   },
   // Gets or sets name of series to display(Need to include a html toolbar for users to choose which series to visualize)
-  // Since default of seriesToDisplay property is undefined, we should see no datapoints on our globe when we first load it.
   seriesToDisplay : {
     get : function(){
       return this._seriesToDisplay;
@@ -86,7 +93,7 @@ Object.defineProperties(DataSource.prototype,{
       // Iterate over each polyline and set property to be true only if they are part of the selected series.
       var collection = this._entityCollection;
       // Entities are individual db rows.
-      var entitites = collection.entities;
+      var entities = collection.entities;
       collection.suspendEvents();
       for (var i = 0; i < entities.length; i++){
           var entity = entities[i];
@@ -115,6 +122,7 @@ Object.defineProperties(DataSource.prototype,{
 // We are creating a prototype function loadUrl
 // Returns a JS promise, which is a proxy for a value not yet known.(since we are loading data from URL.)
 // More info here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+// http://wiki.commonjs.org/wiki/Promises/A
 DataSource.prototype.loadUrl = function(url){
   // Needs a defined url 
   if (!Cesium.defined(url)){
@@ -133,14 +141,100 @@ DataSource.prototype.loadUrl = function(url){
   return Cesium.when(Cesium.loadJson(url), function(json){
     return that.load(json, url);
   }).otherwise(function(error){
-    // catch errors/exceptions that occur during the creation of JS promise via loadUrl function
-    
+    // catch errors/exceptions that occur during the creation of JS promise via loadUrl function and reject the promise
+    this._setLoading(false);
+    that._error.raiseEvent(that,error);
+    return Cesium.when.reject(error);    
   });
 }
 
+// Loads the provided data onto the globe
+DataSource.prototype.load = function(data){
+  if (!Cesium.defined(data)){
+    throw new Cesium.DeveloperError('data is required');
+  }
+  // Clear out pre-existing data
+  this._setLoading(true);
+  this._seriesNames.length = 0;
+  this._seriesToDisplay = undefined;
+
+  var heightScale = this.heightScale;
+  var entities = this._entityCollection;
+  // suspend events when making changes to entities.
+  entities.suspendEvents();
+  entities.removeAll();
+
+  // Loop over each series
+  for (var x = 0; x < data.length, x++){
+    var series = data[x];
+    var seriesName = series[0];
+    var coordinates = series[1];
+
+    // Add name of series to list of possible values
+    this._seriesNames.push(seriesName);
+    // Make the first series the visible one by default;
+    var show = x === 0;
+    if (show){
+      this._seriesToDisplay = seriesName;
+    }
+    // Loop over each coordinate in series and create entities from the data.
+    for (var i = 0; i < coordinates.length; i += 3){
+      var latitude = coordinates[i];
+      var longitude = coordinates[i + 1];
+      var height = coordinates[i +2];
+      var color = Cesium.Color.fromHSL((0.6 - (height * 0.5)), 1.0, 0.5);
+      var surfacePosition = Cesium.Cartesian3.fromDegrees(longitude,latitude,0);
+      var heightPosition = Cesium.Cartesian3.fromDegrees(longitude, latitude, height * heightScale);
+
+    // Create the polylines from WebGL Globe
+    var polyline = new Cesium.PolylineGraphics();
+    polyline.show = new Cesium.ConstantProperty(show);
+    polyline.material = Cesium.ColorMaterialProperty.fromColor(color);
+    polyline.width = new Cesium.ConstantProperty(2);
+    polyline.followSurface = new Cesium.ConstantProperty(false);
+    polyline.positions = new Cesium.ConstantProperty([surfacePosition, heightPosition]);
+
+    // The polyline instance needs to be graphed to an entity.
+    var entity = new Cesium.Entity(seriesName + 'index' + i.toString());
+    entity.polyline = polyline;
+
+    // Adds a property to the entity that indicates the series name.
+    entity.addProperty('seriesName');
+    entity.seriesName = seriesName;
+
+    // Add the entity to teh collection of entities
+    entities.add(entity);
+    }
+  }
+
+  // Once data has been processed, raise the changed event by calling resumeEvents();
+  entities.resumeEvents();
+  this._changed.raiseEvent(this);
+  this._setLoading(false);
+}
+
+// Default of setLoading is a function that takes isLoading as a parameter
+DataSource.prototype._setLoading = function(isLoading){
+  if (this._isLoading !== isLoading){
+    this._isLoading = isLoading;
+    this._loading.raiseEvent(this, isLoading);
+  }
+}
 
 // Creates instance of DataSource to be used on our viewer.
 var dataSource = new DataSource();
+dataSource.loadUrl('').then(function(){
+  // After initial load, create buttons to let user switch among series.
+  function createSeriesSetter(seriesName){
+    return function(){
+      dataSource.seriesToDisplay = seriesName;
+    }
+  }
+  for (var i = 0; i < dataSource.seriesName.length; i++){
+    var seriesName = dataSource.seriesNames[i];
+
+  }
+});
 
 // VISUALIZATIONS:
 // Bing Maps
