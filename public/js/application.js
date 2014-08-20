@@ -1,6 +1,7 @@
 // JSON DATAPOINTS:
 // This is just the private properties/functions and their defaults. Public configuration was already defined.
 var DataSource = function(name){
+  // this._property sets the default property in JS.
 this._name = name;
 // Event(); references events that can be raised.Think of it like a html tag that you can put event listeners on, but in 3d/spatially. Event is function within Cesium.js
 this._changed = new Cesium.Event();
@@ -19,7 +20,7 @@ this._seriesToDisplay = undefined;
 this._heightScale = 10000000;
 }
 
-// Allows me to set properties of my DataSource instances
+// Allows me to set new values to default properties of my DataSource instances
 // Properties are attributes in js. Ex: person.age 
 // More info here: http://www.w3schools.com/js/js_properties.asp
 // Properties are set in object literal
@@ -111,7 +112,31 @@ Object.defineProperties(DataSource.prototype,{
 
 
 //Asynchronously loads the GeoJSON at a provided URL. 
-
+// We are creating a prototype function loadUrl
+// Returns a JS promise, which is a proxy for a value not yet known.(since we are loading data from URL.)
+// More info here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+DataSource.prototype.loadUrl = function(url){
+  // Needs a defined url 
+  if (!Cesium.defined(url)){
+    throw new Cesium.DeveloperError('url is required')
+  }
+  // Creates a name based off url
+  var name = Cesium.getFilenameFromUri(url);
+  // Sets the name if it is different than the current name.
+  if (this._name !== name){
+      this._name = name;
+      this._changed.raiseEvent(this);
+  }
+  // Use 'when' method to load the URL into a JSON object then process with the 'load' function
+  // 'that' variable references the loadUrl instance, used instead of bind since I'm using two different 'this'
+  var that = this; 
+  return Cesium.when(Cesium.loadJson(url), function(json){
+    return that.load(json, url);
+  }).otherwise(function(error){
+    // catch errors/exceptions that occur during the creation of JS promise via loadUrl function
+    
+  });
+}
 
 
 // Creates instance of DataSource to be used on our viewer.

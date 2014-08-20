@@ -2,13 +2,17 @@
 ##Using [Cesium 1.0](http://cesiumjs.org/2013/04/12/Cesium-up-and-running/)
 -----------------------------------------------------------------
 ###Todo
-1. Setup JSON datasource 
+1. Setup JSON datasource JS code 
   * http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Custom%20DataSource.html&label=DataSources
   * application.js
   * layout.erb
   * cesium.erb
-2. Test JSON datasource in application.js Since I'm not using node.js, do I need to require certain .js gems?
-3. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)  
+2. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)
+3. Figure out actual structure of **series** to put in to database.  
+4. Create database, model, and corresponding route for API call.
+5. Research APIs that return coordinates.
+
+
 -----------------------------------------------------------------
 ####From Cesium 1.0
 
