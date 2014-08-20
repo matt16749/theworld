@@ -7,7 +7,8 @@
   * application.js
   * layout.erb
   * cesium.erb
-  
+2. Test JSON datasource in application.js Since I'm not using node.js, do I need to require certain .js gems?
+3. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)  
 -----------------------------------------------------------------
 ####From Cesium 1.0
 
