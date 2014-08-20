@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 
-gem 'httparty'
+gem 'yelp'
 
 # PostgreSQL driver
 gem 'pg'

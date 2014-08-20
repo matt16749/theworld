@@ -1,3 +1,5 @@
+require_relative '../models/yelp_api'
+
 get '/' do 
   redirect '/cesium'
 end
@@ -13,9 +15,8 @@ get '/search/yelp' do
 end
 
 get '/search/yelp/request' do 
+  search_city = params[:city]
   api = Yelp::Api.new
-  latitude = params[:latitude]
-  longitude = params[:longitude]
-  @json_response = api.search_restaurants(latitude, longitude)
+  @what = api.search_food(search_city)
   erb :yelp_response
 end
