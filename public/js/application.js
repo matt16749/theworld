@@ -1,4 +1,4 @@
-// NEED TO LOAD JSON ON LINE 226, or make it into an ajax call. REPLACE Sandcastle on line 235 with what?
+// NEED TO MAKE A AJAX CALL FOR JSON API ON LINE 226, or make it into an ajax call. REPLACE Sandcastle on line 235 with what?
 // WebGL JSON is an array of series, and each series is an array of two items,
 // The first being the series name and the second is an array of repeating latitude, longitude, and height values.
 // Ex: 
@@ -97,7 +97,7 @@ Object.defineProperties(DataSource.prototype,{
       collection.suspendEvents();
       for (var i = 0; i < entities.length; i++){
           var entity = entities[i];
-          entity.polyline.show.setValue(value ==== entity.seriesName);
+          entity.polyline.show.setValue(value === entity.seriesName);
           }
       collection.resumeEvents();
     }
@@ -165,7 +165,7 @@ DataSource.prototype.load = function(data){
   entities.removeAll();
 
   // Loop over each series
-  for (var x = 0; x < data.length, x++){
+  for (var x = 0; x < data.length; x++){
     var series = data[x];
     var seriesName = series[0];
     var coordinates = series[1];
@@ -223,7 +223,7 @@ DataSource.prototype._setLoading = function(isLoading){
 
 // Creates instance of DataSource to be used on our viewer.
 var dataSource = new DataSource();
-dataSource.loadUrl('').then(function(){
+dataSource.loadUrl('../sample.json').then(function(){
   // After initial load, create buttons to let user switch among series.
   function createSeriesSetter(seriesName){
     return function(){
@@ -232,13 +232,18 @@ dataSource.loadUrl('').then(function(){
   }
   for (var i = 0; i < dataSource.seriesName.length; i++){
     var seriesName = dataSource.seriesNames[i];
+
     Sandcastle.addToolbarButton(seriesName, createSeriesSetter(seriesName));
   }
 });
 
 // VISUALIZATIONS:
-// Bing Maps
-var viewer = new Cesium.Viewer('cesiumContainer');
+// // Bing Maps
+var viewer = new Cesium.Viewer('cesiumContainer',
+  {
+    animation : false,
+    timeline : false
+  });
 
 //   var layers = viewer.scene.imageryLayers;
 //   var blackMarble = layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({

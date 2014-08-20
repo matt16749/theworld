@@ -8,7 +8,9 @@
       * [["series1",[latitude, longitude, height, ... ]
       * ["series2",[latitude, longitude, height, ... ]]
     *entities are series visualized in 3d on Cesium globe.
-  * Replace SandCastle on line 235 with the View that is being rendered. How?
+  * Replace SandCastle on line 235 with the View that is being rendered. 
+    * [SandCastle Source](https://github.com/AnalyticalGraphicsInc/cesium/tree/master/Apps)
+    * [Relevant Stack Overflow](http://stackoverflow.com/questions/16331379/javascript-returning-404-error-and-uncaught-reference)
 2. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)
 4. Create database, model, and corresponding route for API call.
 5. Research APIs that return coordinates.
