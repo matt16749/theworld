@@ -3,12 +3,13 @@
 -----------------------------------------------------------------
 ###Todo
 1. Setup JSON datasource JS code 
-  * http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Custom%20DataSource.html&label=DataSources
-  * application.js
-  * layout.erb
-  * cesium.erb
+  * Format JSON to WebGL standards and load JSON on line 226, put JSON file in public for test. If works, write corresponding MVC and db.
+    * Ex of series: 
+      * [["series1",[latitude, longitude, height, ... ]
+      * ["series2",[latitude, longitude, height, ... ]]
+    *entities are series visualized in 3d on Cesium globe.
+  * Replace SandCastle on line 235 with the View that is being rendered. How?
 2. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)
-3. Figure out actual structure of **series** to put in to database.  
 4. Create database, model, and corresponding route for API call.
 5. Research APIs that return coordinates.
 

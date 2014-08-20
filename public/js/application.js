@@ -1,4 +1,4 @@
-// NEED TO LOAD JSON ON LINE 226, or make it into an ajax call.
+// NEED TO LOAD JSON ON LINE 226, or make it into an ajax call. REPLACE Sandcastle on line 235 with what?
 // WebGL JSON is an array of series, and each series is an array of two items,
 // The first being the series name and the second is an array of repeating latitude, longitude, and height values.
 // Ex: 
@@ -232,7 +232,7 @@ dataSource.loadUrl('').then(function(){
   }
   for (var i = 0; i < dataSource.seriesName.length; i++){
     var seriesName = dataSource.seriesNames[i];
-
+    Sandcastle.addToolbarButton(seriesName, createSeriesSetter(seriesName));
   }
 });
 
@@ -251,6 +251,7 @@ var viewer = new Cesium.Viewer('cesiumContainer');
 // // Increase Brightness of lights
 //   blackMarble.brightness = 2.0;
 
+viewer.clock.shouldAnimate = false;
 // Adds dataSource to be used on cesium globe
 viewer.dataSources.add(dataSource);
 
