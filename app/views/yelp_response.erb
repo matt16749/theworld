@@ -1,1 +1,71 @@
-<%= @what %>
+<div id="results">
+
+<% @business_hash %>
+  <table id="table">
+    <label id="result_label">Find Your Business...</label>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Place</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <td><%= @business_hash[:name][0] %></td>
+        <td><%= @business_hash[:location][0] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][1] %></td>
+        <td><%= @business_hash[:location][1] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][2] %></td>
+        <td><%= @business_hash[:location][2] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][3] %></td>
+        <td><%= @business_hash[:location][3] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][4] %></td>
+        <td><%= @business_hash[:location][4] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][5] %></td>
+        <td><%= @business_hash[:location][5] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][6] %></td>
+        <td><%= @business_hash[:location][6] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][7] %></td>
+        <td><%= @business_hash[:location][7] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][8] %></td>
+        <td><%= @business_hash[:location][8] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+      <tr>
+        <td><%= @business_hash[:name][9] %></td>
+        <td><%= @business_hash[:location][9] %></td>
+        <td><%= @business_hash[:place] %></td>
+      </tr>
+     <tr>
+        <td><%= @business_hash[:name][10] %></td>
+        <td><%= @business_hash[:location][10] %></td>
+      </tr>
+    </tfoot>
+    <label id="lbl_result_end">...And Search In Space!</label>
+  </table>
+</div>

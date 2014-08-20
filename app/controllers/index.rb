@@ -10,13 +10,14 @@ end
 
 
 # Ping Yelp API and get Json back.
-get '/search/yelp' do 
+get '/search' do 
   erb :yelp_request
 end
 
-get '/search/yelp/request' do 
+get '/search/request' do 
   search_city = params[:city]
   api = Yelp::Api.new
-  @what = api.search_food(search_city)
+  @business_hash = api.search_businesses(search_city)
   erb :yelp_response
 end
+
