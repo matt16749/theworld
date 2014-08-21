@@ -1,3 +1,4 @@
+/*Cesium Globe*/
 @import url(/Cesium/Widgets/widgets.css);
 
 #cesiumContainer {
@@ -23,6 +24,45 @@ body {
     height: 100%;
 }
 
+/*Requests*/
+#requests{
+    font-family: 'Vollkorn', serif;
+    background-image: url('../images/world.png');
+    height:100%;
+}
+
+#requests form{
+    position:fixed;
+    top:20%;
+    left:45%;
+}
+
+#title{
+    color:white;
+    font-size: 5em;
+    text-shadow:0.05em 0.05em #848894;
+}
+
+.caption{
+    color:white;
+}
+
+#label_requests{
+    color:white;
+    font-weight: bold;
+}
+
+#requests_box{
+    width:100%;
+}
+
+#requests_submit{
+    border-radius: 0.8em;
+    background-color: #EED255;
+    margin-left: 40%;
+}
+
+/*Results*/
 #results{
     font-family: 'Vollkorn', serif;
     background-image: url('../images/space.png');
