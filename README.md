@@ -13,6 +13,7 @@ Matthew Chan.
 -----------------------------------------------------------------
 
 ###Todo
+0. Make RSPEC TESTS!!!
 1. Fix JS JSON
   * Format JSON to WebGL standards and load JSON on line 226, put JSON file in public for test. If works, write corresponding MVC and db.
     * Ex of series: 
