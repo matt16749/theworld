@@ -24,13 +24,14 @@ body {
 }
 
 #results{
+    font-family: 'Vollkorn', serif;
     background-image: url('../images/space.png');
     height:100%;
 }
 
 #table {
     position:relative;
-    top:20%;
+    top:25%;
     width:100%;
     opacity:0.8;
 }
@@ -63,4 +64,16 @@ body {
     position:fixed;
     bottom:40%;
     right:5%;
+}
+
+#result_link{
+   position:fixed;
+   bottom:35%;
+   right:5%;
+   color:white;
+   text-decoration: none;    
+}
+
+#result_link:hover{
+   text-decoration: line-through;    
 }

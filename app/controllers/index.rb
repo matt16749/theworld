@@ -1,13 +1,8 @@
 require_relative '../models/yelp_api'
 
 get '/' do 
-  redirect '/cesium'
+  redirect '/search'
 end
-
-get '/cesium' do 
-  erb :cesium
-end
-
 
 # Ping Yelp API and get Json back.
 get '/search' do 
@@ -21,3 +16,7 @@ get '/search/request' do
   erb :yelp_response
 end
 
+# To the globe...
+get '/cesium' do 
+  erb :cesium
+end
