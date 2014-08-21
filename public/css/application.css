@@ -1,3 +1,4 @@
+/*Cesium Globe*/
 @import url(/Cesium/Widgets/widgets.css);
 
 #cesiumContainer {
@@ -21,4 +22,98 @@ body {
     margin: 0;
     overflow: hidden;
     height: 100%;
+}
+
+/*Requests*/
+#requests{
+    font-family: 'Vollkorn', serif;
+    background-image: url('../images/world.png');
+    height:100%;
+}
+
+#requests form{
+    position:fixed;
+    top:20%;
+    left:45%;
+}
+
+#title{
+    color:white;
+    font-size: 5em;
+    text-shadow:0.05em 0.05em #848894;
+}
+
+.caption{
+    color:white;
+}
+
+#label_requests{
+    color:white;
+    font-weight: bold;
+}
+
+#requests_box{
+    width:100%;
+}
+
+#requests_submit{
+    border-radius: 0.8em;
+    background-color: #EED255;
+    margin-left: 40%;
+}
+
+/*Results*/
+#results{
+    font-family: 'Vollkorn', serif;
+    background-image: url('../images/space.png');
+    height:100%;
+}
+
+#table {
+    position:relative;
+    top:25%;
+    width:100%;
+    opacity:0.8;
+}
+
+#result_label{
+    color:white;
+    font-weight: bold;
+    font-size: 3em;
+    position:fixed;
+    top:10%;
+    left:5%;
+}
+
+
+#table th{
+    background-color:#FDEA66;
+    color:#2F4178;
+}
+
+#table td {
+    text-align:center;
+    background-color:#2F4178;
+    color:#FDEA66;
+}
+
+#lbl_result_end{
+    font-size: 2em;
+    font-weight: bold;
+    color:white;
+    position:fixed;
+    bottom:40%;
+    right:5%;
+}
+
+#result_link{
+   position:fixed;
+   bottom:35%;
+   right:5%;
+   color:white;
+   text-decoration: none;    
+}
+
+#result_link:hover{
+   text-decoration: line-through;    
 }

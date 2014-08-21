@@ -2,13 +2,20 @@
 ##Using [Cesium 1.0](http://cesiumjs.org/2013/04/12/Cesium-up-and-running/)
 -----------------------------------------------------------------
 ###Todo
-1. Get Cesium 1.0 working on Sinatra.
-2. Modify [Cesium imagery layers](http://cesiumjs.org/2013/01/04/Cesium-Imagery-Layers-Tutorial/)
-3. [LeapMotion API](https://github.com/Aviture/cesium-leap)
-4. Get Analytics via CZML
-  * (Subset of JSON) working. [CZML Guide for analytics](https://github.com/AnalyticalGraphicsInc/cesium/wiki/czml-guide)
-  * [CZML example via Chrome](http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=CZML.html&label=DataSources)
-  
+1. Setup JSON datasource JS code 
+  * Format JSON to WebGL standards and load JSON on line 226, put JSON file in public for test. If works, write corresponding MVC and db.
+    * Ex of series: 
+      * [["series1",[latitude, longitude, height, ... ]
+      * ["series2",[latitude, longitude, height, ... ]]
+    *entities are series visualized in 3d on Cesium globe.
+  * Replace SandCastle on line 235 with the View that is being rendered. 
+    * [SandCastle Source](https://github.com/AnalyticalGraphicsInc/cesium/tree/master/Apps)
+    * [Relevant Stack Overflow](http://stackoverflow.com/questions/16331379/javascript-returning-404-error-and-uncaught-reference)
+2. Research [WebGL](http://www.lighthouse3d.com/2013/07/webgl-importing-a-json-formatted-3d-model/)
+4. Create database, model, and corresponding route for API call.
+5. Research APIs that return coordinates.
+
+
 -----------------------------------------------------------------
 ####From Cesium 1.0
 
