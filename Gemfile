@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
 
 gem 'yelp'
 
@@ -25,6 +24,7 @@ group :test do
 end
 
 group :test, :development do
+	gem 'dotenv'
   gem 'factory_girl'
   gem 'faker'
 end
