@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
-  <!-- This builds the Viewer and Cesium JS model. -->
   <script src="/Cesium/Cesium.js"></script>
 
   <link rel="stylesheet" href="/css/normalize.css">
@@ -12,13 +11,9 @@
 </head>
 <body>
   <%= yield %>
-  <!-- Allows Leap version of JS -->
   <script src="/leapjs/leap.min.js"></script>
-  <!-- Allows Integration of Leap Motion with Cesium -->
   <script src="/cesium-leap/dist/cesiumLeap.js"></script>
-  <!-- Creates instance of Cesium Viewer and ellipsoid -->
   <script src="/js/application.js"></script>
-  <!-- Creates instance of LeapMotion to use on Cesium -->
   <script type="text/javascript">
     var cesiumLeap = new CesiumLeap({
       scene : viewer.scene,

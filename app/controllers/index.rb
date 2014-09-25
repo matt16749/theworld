@@ -4,7 +4,6 @@ get '/' do
   redirect '/search'
 end
 
-# Ping Yelp API and get Json back.
 get '/search' do 
   erb :yelp_request
 end
@@ -16,7 +15,6 @@ get '/search/request' do
   erb :yelp_response
 end
 
-# To the globe...
 get '/cesium' do 
   erb :cesium
 end
